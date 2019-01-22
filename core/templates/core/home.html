@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+
+{% block container %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">{% trans "Name" %}</th>
+                <th scope="col">{% trans "Students" %}</th>
+                <th scope="col">{% trans "Captain" %}</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for group in object_list %}
+            <tr>
+                <th scope="row"><a href='{% url "core:group" group.id %}'>{{ group.name }}</a></th>
+                <td>{{ group.student_set.count }}</td>
+                <td>{{ group.captain }}</td>
+                <td>
+                    <a class="btn" href='{% url "core:group_create" %}'>{% trans "create" %}</a>
+                    <a class="btn" href='{% url "core:group_update" group.id %}'>{% trans "update" %}</a>
+                    <a class="btn" href='{% url "core:group_delete" group.id %}'>{% trans "delete" %}</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

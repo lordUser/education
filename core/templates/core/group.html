@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block container %}
+    <ul class="list-group">
+    {% for student in object_list %}
+        {% if student %}
+
+        <li  class="list-group-item">
+            <a class="btn" href='{% url "core:student_update" student.ticket %}'>{{ student }}</a>
+            <a class="btn" href='{% url "core:student_create" %}'>{% trans "create" %}</a>
+            <a class="btn" href='{% url "core:student_delete" student.ticket %}'>{% trans "delete" %}</a>
+        </li>
+        {% endif %}
+    {% endfor %}
+    </ul>
+{% endblock %}
