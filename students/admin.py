@@ -5,10 +5,6 @@ class StudentInlineAdmin(admin.TabularInline):
     model = Student
 
 
-class StudentAdmin(admin.ModelAdmin):
-    pass
-
-
 class StudentGroupAdmin(admin.ModelAdmin):
     inlines = [StudentInlineAdmin,]
 
