@@ -8,6 +8,5 @@ class StudentInlineAdmin(admin.TabularInline):
 class StudentGroupAdmin(admin.ModelAdmin):
     inlines = [StudentInlineAdmin,]
 
-
-admin.site.register(Student, StudentAdmin)
+    
 admin.site.register(StudentGroup, StudentGroupAdmin)
