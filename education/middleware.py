@@ -23,7 +23,7 @@ class QueryCountDebugMiddleware(object):
                         query_time = query.get('duration', 0) / 1000
                     total_time += float(query_time)
 
-                querycount = '\n %s queries run, total %s seconds\n' % (len(connection.queries), total_time)
+                querycount = '\n {} queries run, total {} seconds\n'.format(len(connection.queries), total_time)
                 body = response.rendered_content.find("</body>")
                 if body > 0:
                     start_content = response.rendered_content[:body]
